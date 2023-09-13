@@ -9,11 +9,11 @@ defmodule Exflect.MixProject do
       package: [
         name: "Exflect",
         licences: ["MIT"],
-        links: [
-          github: "https://github.com/pejrich/Exflect"
-        ],
-        source_url: "https://github.com/pejrich/Exflect"
-      ]
+        links: %{"GitHub" => "https://github.com/pejrich/Exflect"},
+        source_url: "https://github.com/pejrich/Exflect",
+        files: ~w(lib priv .formatter.exs mix.exs README* LICENSE*
+                 CHANGELOG*)
+      ],
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -30,6 +30,7 @@ defmodule Exflect.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:benchee, "~> 1.1", only: :test},
       {:inflex, "~> 2.1", only: :test}
     ]
