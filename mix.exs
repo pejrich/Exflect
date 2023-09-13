@@ -7,7 +7,7 @@ defmodule Exflect.MixProject do
       version: "0.1.0",
       description: "An inflection library for singularization/pluralization of English words.",
       package: [
-        name: "Exflect",
+        name: "exflect",
         licenses: ["MIT"],
         links: %{"GitHub" => "https://github.com/pejrich/Exflect"},
         source_url: "https://github.com/pejrich/Exflect",
