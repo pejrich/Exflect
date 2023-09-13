@@ -10,7 +10,7 @@ by adding `exflect` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:exflect, "~> 0.1.0"}
+    {:exflect, "~> 0.2.0"}
   ]
 end
 ```
