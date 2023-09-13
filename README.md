@@ -53,7 +53,7 @@ The existing one seems to not longer be maintained, and it's quite inaccurate, a
 Here are some accuracy comparisons based on the test suite from the most popular Python inflector library:
 
 
-|-|-|
+
 |exflect|90.5%|
 |-|-|
 |inflex|59.6%|
