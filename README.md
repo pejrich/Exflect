@@ -52,13 +52,18 @@ The existing one seems to not longer be maintained, and it's quite inaccurate, a
 
 Here are some accuracy comparisons based on the test suite from the most popular Python inflector library:
 
-exflect: 0.905
-inflex: 0.596
+
+|-|-|
+|exflect|90.5%|
+|-|-|
+|inflex|59.6%|
+
 
 It would be possible to get Exflect higher scorewise, but that 10% is a lot of edge cases, or places where varying libraries disagree. Words like "elk" vs "elks", "buffalo" vs "buffaloes" vs "buffalos". Also Exflect doesn't currently handle phrases like "lady in waiting" correctly. You'll get "lady in waitings" rather than "ladies in waiting".
 
 Here are some performance benchmarks:
 
+```
 Operating System: macOS
 CPU Information: Apple M1 Pro
 Number of Available Cores: 10
@@ -106,6 +111,7 @@ exflect_match_style        153.99 K - 4.44x reduction count +119.32 K
 inflex                    686.32 K - 19.79x reduction count +651.65 K
 
 **All measurements for reduction count were the same**
+```
 
 You can run these benchmarks yourself by running the test suite with the `benchmark` tag:
 
@@ -119,7 +125,7 @@ It's still a work in progress, as there are some edge cases that aren't being co
 
 ## Credits
  
-The existing Elixir library Inflex(https://github.com/nurugger07/inflex) and the Python library Inflect(https://github.com/jaraco/inflect) were both crucial in the devlopment of this code, so thanks to them for their work.
+The existing Elixir library [Inflex](https://github.com/nurugger07/inflex) and the Python library [Inflect](https://github.com/jaraco/inflect) were both crucial in the devlopment of this code, so thanks to them for their work.
 
 
 ## License
