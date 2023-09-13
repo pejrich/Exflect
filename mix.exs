@@ -8,7 +8,7 @@ defmodule Exflect.MixProject do
       description: "An inflection library for singularization/pluralization of English words.",
       package: [
         name: "Exflect",
-        licences: ["MIT"],
+        licenses: ["MIT"],
         links: %{"GitHub" => "https://github.com/pejrich/Exflect"},
         source_url: "https://github.com/pejrich/Exflect",
         files: ~w(lib priv .formatter.exs mix.exs README* LICENSE*
