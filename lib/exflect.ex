@@ -4,13 +4,16 @@ defmodule Exflect do
   @spec singularize(String.t(), keyword()) :: String.t()
   @doc """
   Singlarizes an English word.
+  ```
   $ Exflect.singularize("leaves")
   => "leaf"
+  ```
 
   Takes the option `match_style` if you want it to maintain the current whitespace/case.
-
+  ```
   $ Exflect.singularize("  LEAVES  ", match_style: true)
   => "  LEAF  "
+  ```
   """
   def singularize(text, opts \\ [match_style: false])
 
@@ -31,13 +34,16 @@ defmodule Exflect do
   @spec pluralize(String.t(), keyword()) :: String.t()
   @doc """
   Pluralizes an English word.
+  ```
   $ Exflect.pluralize("leaf")
   => "leaves"
+  ```
 
   Takes the option `match_style` if you want it to maintain the current whitespace/case.
-
+  ```
   $ Exflect.pluralize("  LEAF  ", match_style: true)
   => "  LEAVES  "
+  ```
   """
   def pluralize(word, opts \\ [match_style: false])
 
@@ -58,14 +64,14 @@ defmodule Exflect do
   @spec inflect(String.t(), pos_integer(), keyword()) :: String.t()
   @doc """
   Inflects the input word based on the the integer given.
-
+  ```
   $ Exflect.inflect("leaf", 0)
   => "leaves"
   $ Exflect.inflect("leaf", 1)
   => "leaf"
   $ Exflect.inflect("leaf", 2)
   => "leaves"
-
+  ```
   Also accepts the `match_style` option
   """
   def inflect(word, n, opts \\ [match_style: false])
