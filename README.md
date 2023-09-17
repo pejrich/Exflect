@@ -19,27 +19,27 @@ Documentation can be found on [HexDocs](https://hexdocs.pm/exflect).
 
 ## Usage
 
-```
-Exflect.pluralize("leaf")
-# => "leaves"
-Exflect.singularize("leaves")
-# => "leaf"
+```elixir
+iex> Exflect.pluralize("leaf")
+"leaves"
+iex> Exflect.singularize("leaves")
+"leaf"
 
-Exflect.inflect("leaf", 0)
-# => "leaves"
-Exflect.inflect("leaf", 1)
-# => "leaf"
-Exflect.inflect("leaf", 2)
-# => "leaves"
+iex> Exflect.inflect("leaf", 0)
+"leaves"
+iex> Exflect.inflect("leaf", 1)
+"leaf"
+iex> Exflect.inflect("leaf", 2)
+"leaves"
 
-Exflect.pluralize("  LEAF   ", match_style: true)
-# => "  LEAVES   "
-Exflect.pluralize("  Leaf   ", match_style: true)
-# => "  Leaves   "
-Exflect.singularize("  LEAVES   ", match_style: true)
-# => "  LEAF   "
-Exflect.inflect("  LEAF  ", 2, match_style: true)
-# => "  LEAVES  "
+iex> Exflect.pluralize("  LEAF   ", match_style: true)
+"  LEAVES   "
+iex> Exflect.pluralize("  Leaf   ", match_style: true)
+"  Leaves   "
+Exflect.singularize("  LEAVES   ", match_style: iex> true)
+"  LEAF   "
+iex> Exflect.inflect("  LEAF  ", 2, match_style: true)
+"  LEAVES  "
 ```
 
 ## FAQ
