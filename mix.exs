@@ -14,6 +14,10 @@ defmodule Exflect.MixProject do
         files: ~w(lib priv .formatter.exs mix.exs README* LICENSE*
                  CHANGELOG*)
       ],
+      docs: [
+        main: "Exflect",
+        extras: ["README.md"]
+      ],
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps()
