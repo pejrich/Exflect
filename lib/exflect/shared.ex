@@ -1,4 +1,5 @@
 defmodule Exflect.Shared do
+  @moduledoc false
   @exception_path :code.priv_dir(:exflect) |> Path.join("exceptions.tsv")
   @external_resource @exception_path
   @uncountable_path :code.priv_dir(:exflect) |> Path.join("uncountable.tsv")

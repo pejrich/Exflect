@@ -1,4 +1,5 @@
 defmodule Exflect.Singularize do
+  @moduledoc false
   @exceptions Exflect.Shared.exceptions(:singularize)
   @shared_endings Exflect.Shared.shared_endings(:singularize)
 
@@ -13,7 +14,6 @@ defmodule Exflect.Singularize do
             ])
          |> Enum.sort_by(fn {k, _} -> -byte_size(k) end)
 
-  def pl_sg, do: @rules
   @longest List.first(@rules) |> elem(0) |> byte_size()
 
   def match!(input) do

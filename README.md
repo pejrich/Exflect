@@ -48,13 +48,13 @@ Exflect.inflect("  LEAF  ", 2, match_style: true)
 
 The existing one seems to not longer be maintained, and it's quite inaccurate, and not very performant(mostly because of the heavy reliance on Regex).
 
-Here are some accuracy comparisons based on the test suite from the most popular Python inflector library:
+Here are some accuracy comparisons based on the test suite compiled from other OSS inflection libraries. I've purposely removed any test data that follows the default "add 's'"/"remove 's'" rule, as it has the least value when comparing accuracy. There are about 1500 words being tested. The performance results below are also based on the same test set.
 
 
 
-|exflect|90.5%|
+|exflect|91.1%|
 |-|-|
-|inflex|59.6%|
+|inflex|75.8%|
 
 
 It would be possible to get Exflect higher scorewise, but that 10% is a lot of edge cases, or places where varying libraries disagree. Words like "elk" vs "elks", "buffalo" vs "buffaloes" vs "buffalos". Also Exflect doesn't currently handle phrases like "lady in waiting" correctly. You'll get "lady in waitings" rather than "ladies in waiting".
@@ -82,31 +82,31 @@ Benchmarking exflect ...
 Benchmarking inflex ...
 Benchmarking exflect_match_style ...
 
-Name                         ips        average  deviation         median         99th %
-exflect                   2497.27        0.40 ms     ±3.16%        0.40 ms        0.44 ms
-exflect_match_style        687.83        1.45 ms     ±2.01%        1.45 ms        1.55 ms
-inflex                     37.39       26.75 ms     ±0.84%       26.83 ms       27.27 ms
+Name                          ips        average  deviation         median         99th %
+exflect                    846.64        1.18 ms     ±2.63%        1.17 ms        1.26 ms
+exflect_match_style        291.16        3.43 ms     ±2.23%        3.41 ms        3.76 ms
+inflex                      18.81       53.16 ms     ±0.18%       53.14 ms       53.44 ms
 
 Comparison:
-exflect                   2497.27
-exflect_match_style        687.83 - 3.63x slower +1.05 ms
-inflex                     37.39 - 66.80x slower +26.35 ms
+exflect                    846.64
+exflect_match_style        291.16 - 2.91x slower +2.25 ms
+inflex                      18.81 - 45.00x slower +51.97 ms
 
 Memory usage statistics:
 
-Name                  Memory usage
-exflect                     0.80 MB
-exflect_match_style         2.72 MB - 3.38x memory usage +1.91 MB
-inflex                     3.68 MB - 4.57x memory usage +2.87 MB
+Name                   Memory usage
+exflect                     2.48 MB
+exflect_match_style         6.45 MB - 2.60x memory usage +3.97 MB
+inflex                      8.02 MB - 3.23x memory usage +5.53 MB
 
 **All measurements for memory usage were the same**
 
 Reduction count statistics:
 
-Name               Reduction count
-exflect                     34.67 K
-exflect_match_style        153.99 K - 4.44x reduction count +119.32 K
-inflex                    686.32 K - 19.79x reduction count +651.65 K
+Name                Reduction count
+exflect                     87.88 K
+exflect_match_style        341.98 K - 3.89x reduction count +254.10 K
+inflex                    1415.14 K - 16.10x reduction count +1327.26 K
 
 **All measurements for reduction count were the same**
 ```

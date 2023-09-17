@@ -1,4 +1,5 @@
 defmodule Exflect.Word do
+  @moduledoc false
   defstruct [:case, :leading, :trailing, :text]
 
   @whitespace_ranges [

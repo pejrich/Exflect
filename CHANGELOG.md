@@ -11,3 +11,11 @@ Features:
 Features:
 
   - Docs formatting changes
+
+## 0.3.0 (2023-09-17)
+
+Features:
+
+  - Added some more exceptions
+  - Expanded test data to ~1500 cases
+  - Cleaned up docs

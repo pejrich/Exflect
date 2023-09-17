@@ -1,7 +1,8 @@
 defmodule Exflect.Pluralize do
+  @moduledoc false
   @exceptions Exflect.Shared.exceptions(:pluralize)
-  @endings Exflect.Shared.shared_endings(:pluralize)
-  @rules (@endings ++
+  @shared_endings Exflect.Shared.shared_endings(:pluralize)
+  @rules (@shared_endings ++
             [
               {"sis", "ses"},
               {"man", "men"},
@@ -11,11 +12,9 @@ defmodule Exflect.Pluralize do
               {"axis", "axes"},
               {"testis", "testes"},
               {"s", "s"}
-            ] ++
-            Enum.map(~w(status canvas), &{&1, "#{&1}es"}))
+            ])
          |> Enum.sort_by(fn {k, _} -> -byte_size(k) end)
 
-  def sg_pl, do: @rules
   @longest List.first(@rules) |> elem(0) |> byte_size()
 
   def match!(input) do
