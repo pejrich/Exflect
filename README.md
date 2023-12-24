@@ -52,9 +52,9 @@ Here are some accuracy comparisons based on the test suite compiled from other O
 
 
 
-|exflect|91.1%|
+|exflect|93.5%|
 |-|-|
-|inflex|75.8%|
+|inflex|76.0%|
 
 
 It would be possible to get Exflect higher scorewise, but that 10% is a lot of edge cases, or places where varying libraries disagree. Words like "elk" vs "elks", "buffalo" vs "buffaloes" vs "buffalos". Also Exflect doesn't currently handle phrases like "lady in waiting" correctly. You'll get "lady in waitings" rather than "ladies in waiting".
@@ -68,45 +68,57 @@ Number of Available Cores: 10
 Available memory: 16 GB
 Elixir 1.15.3
 Erlang 26.0
+JIT enabled: true
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
 time: 5 s
-memory time: 2 s
-reduction time: 2 s
+memory time: 1 s
+reduction time: 1 s
 parallel: 1
 inputs: none specified
-Estimated total run time: 33 s
+Estimated total run time: 36 s
 
 Benchmarking exflect ...
 Benchmarking inflex ...
+Benchmarking exflect_check ...
 Benchmarking exflect_match_style ...
+Calculating statistics...
+Formatting results...
 
 Name                          ips        average  deviation         median         99th %
-exflect                    846.64        1.18 ms     ±2.63%        1.17 ms        1.26 ms
-exflect_match_style        291.16        3.43 ms     ±2.23%        3.41 ms        3.76 ms
-inflex                      18.81       53.16 ms     ±0.18%       53.14 ms       53.44 ms
+exflect                    907.90        1.10 ms     ±3.40%        1.09 ms        1.24 ms
+exflect_match_style        305.59        3.27 ms     ±2.10%        3.26 ms        3.47 ms
+exflect_check               27.16       36.82 ms     ±0.76%       36.76 ms       37.46 ms
+inflex                      19.08       52.42 ms     ±0.35%       52.42 ms       52.76 ms
 
 Comparison:
-exflect                    846.64
-exflect_match_style        291.16 - 2.91x slower +2.25 ms
-inflex                      18.81 - 45.00x slower +51.97 ms
+exflect                    907.90
+exflect_match_style        305.59 - 2.97x slower +2.17 ms
+exflect_check               27.16 - 33.42x slower +35.71 ms
+inflex                      19.08 - 47.59x slower +51.32 ms
 
 Memory usage statistics:
 
-Name                   Memory usage
-exflect                     2.48 MB
-exflect_match_style         6.45 MB - 2.60x memory usage +3.97 MB
-inflex                      8.02 MB - 3.23x memory usage +5.53 MB
+Name                        average  deviation         median         99th %
+exflect                     2.20 MB     ±0.00%        2.20 MB        2.20 MB
+exflect_match_style         6.04 MB     ±0.00%        6.04 MB        6.04 MB
+exflect_check               6.41 MB     ±0.00%        6.41 MB        6.41 MB
+inflex                      7.93 MB     ±0.00%        7.93 MB        7.93 MB
 
-**All measurements for memory usage were the same**
+Comparison:
+exflect                     2.20 MB
+exflect_match_style         6.04 MB - 2.75x memory usage +3.84 MB
+exflect_check               6.41 MB - 2.92x memory usage +4.21 MB
+inflex                      7.93 MB - 3.61x memory usage +5.74 MB
 
 Reduction count statistics:
 
 Name                Reduction count
-exflect                     87.88 K
-exflect_match_style        341.98 K - 3.89x reduction count +254.10 K
-inflex                    1415.14 K - 16.10x reduction count +1327.26 K
+exflect                     0.104 M
+exflect_match_style          0.36 M - 3.40x reduction count +0.25 M
+exflect_check                1.05 M - 10.09x reduction count +0.95 M
+inflex                       1.40 M - 13.40x reduction count +1.30 M
 
 **All measurements for reduction count were the same**
 ```

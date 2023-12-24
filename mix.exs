@@ -4,7 +4,7 @@ defmodule Exflect.MixProject do
   def project do
     [
       app: :exflect,
-      version: "0.3.0",
+      version: "0.4.0",
       description: "An inflection library for singularization/pluralization of English words.",
       package: [
         name: "exflect",
@@ -37,7 +37,8 @@ defmodule Exflect.MixProject do
       {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:benchee, "~> 1.1", only: [:dev, :test]},
       {:jason, "~> 1.4", only: :dev},
-      {:inflex, "~> 2.1", only: :test}
+      {:inflex, "~> 2.1", only: [:dev, :test]},
+      {:httpoison, "~> 2.1", only: [:dev]}
     ]
   end
 end

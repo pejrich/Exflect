@@ -19,3 +19,12 @@ Features:
   - Added some more exceptions
   - Expanded test data to ~1500 cases
   - Cleaned up docs
+
+## 0.4.0 (2023-12-24)
+
+Features:
+
+  - Improved accuracy
+  - Added `check` option to singularize/pluralize
+  - Added singular?/1 and plural?/1 functions
+  - Cleaned up test data

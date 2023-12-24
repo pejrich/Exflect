@@ -2,17 +2,7 @@ defmodule Exflect.Pluralize do
   @moduledoc false
   @exceptions Exflect.Shared.exceptions(:pluralize)
   @shared_endings Exflect.Shared.shared_endings(:pluralize)
-  @rules (@shared_endings ++
-            [
-              {"sis", "ses"},
-              {"man", "men"},
-              {"quiz", "quizes"},
-              {"scurf", "scurfs"},
-              {"scarf", "scarfs"},
-              {"axis", "axes"},
-              {"testis", "testes"},
-              {"s", "s"}
-            ])
+  @rules (@shared_endings ++ [{"s", "s"}])
          |> Enum.sort_by(fn {k, _} -> -byte_size(k) end)
 
   @longest List.first(@rules) |> elem(0) |> byte_size()
@@ -25,7 +15,8 @@ defmodule Exflect.Pluralize do
   end
 
   def match("" <> text),
-    do: exception?(text) || match(skip_text(text, byte_size(text) - @longest))
+    do:
+      exception?(text) || uncountable?(text) || match(skip_text(text, byte_size(text) - @longest))
 
   def match({"", text}), do: {:default, text <> "s"}
 
@@ -42,6 +33,13 @@ defmodule Exflect.Pluralize do
   end
 
   defp skip_text(text, _), do: {text, ""}
+
+  defp uncountable?(text) do
+    case Exflect.Shared.uncountable?(text) do
+      "" <> text -> {:uncountable, text}
+      _ -> nil
+    end
+  end
 
   defp exception?(text) do
     case Map.get(@exceptions, text) do

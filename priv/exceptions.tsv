@@ -24,16 +24,16 @@ allegro	allegros
 Allie	Allies
 aloe	aloes
 alto	altos|alta
+aluminium	aluminium|aluminiums
+aluminum	aluminum|aluminums
 alumna	alumnae
 alumnus	alumni
 alveolus	alveoli
 am	are
 amanuensis	amanuenses
 Amie	Amies
-ammo	ammos
 amniocentesis	amniocenteses
-amoeba	amoebae
-amoeba	amoebas|amoebae
+amoeba	amoebae|amoebas
 analysis	analyses
 anathema	anathemata
 Andromache	Andromaches
@@ -51,7 +51,6 @@ aphelion	aphelia
 apotheosis	apotheoses
 apparatus	apparatuses|apparatus
 appendix	appendixes|appendices
-applause	applauses
 aquarium	aquariums|aquaria
 arboretum	arboretums|arboreta
 Archie	Archies
@@ -60,7 +59,6 @@ are	is
 armadillo	armadillos
 arteriosclerosis	arterioscleroses
 Artie	Arties
-asbestos	asbestoses
 asyndeton	asyndeta
 ataman	atamans
 atherosclerosis	atheroscleroses
@@ -83,7 +81,6 @@ Bahaman	Bahamans
 Bamako	Bamakos
 Barbie	Barbies
 Barquisimeto	Barquisimetos
-barracks	barracks
 Barrie	Barries
 Basie	Basies
 basis	bases
@@ -103,7 +100,7 @@ Bertie	Berties
 Bessie	Bessies
 Betelgeuse	Betelgeuses
 Bettie	Betties
-bias	biases
+bias	biases|biasses
 biggie	biggies
 bildungsroman	bildungsromane
 bill-of-attainder	bills-of-attainder
@@ -113,7 +110,7 @@ bingo	bingos
 birdie	birdies
 Biro	Biros
 biscotto	biscotti
-bison	bisons|bison
+bison	bison|bisons
 bivalve	bivalves
 blame	blames
 Blanche	Blanches
@@ -154,18 +151,22 @@ bursitis	bursitises
 bus	buses|busses
 buzz	buzzes
 cache	caches
-cactus	cactuses|cacti
+cactus	cacti|cactuses
 caddie	caddies
 caddis	caddises
+cafe	cafes
 caiman	caimans
 Cairo	Cairos
+calculus	calculi|calculuses
 Callie	Callies
 calorie	calories
 camaraderie	camaraderies
+campus	campuses
 candelabrum	candelabra
 cannabis	cannabises
 canoe	canoes
 canto	cantos
+cantus	cantuses
 canvas	canvases
 cappuccino	cappuccinos
 carcinoma	carcinomata
@@ -211,6 +212,7 @@ cochito	cochitos
 cockamamie	cockamamies
 coco	cocos
 codex	codices
+coitus	coituses
 collie	collies
 Colombo	Colombos
 Colorado	Colorados
@@ -247,8 +249,7 @@ criterion	criteria
 Crusoe	Crusoes
 curie	curies
 Curie	Curies
-curriculum	curricula
-curriculum	curriculums|curricula
+curriculum	curricula|curriculums
 cutesie	cutesies
 cyano	cyanos
 czech	czechs
@@ -276,7 +277,6 @@ director-general	directors-general
 dissolve	dissolves
 ditto	dittos
 Dixie	Dixies
-do	does
 doe	does
 dogie	dogies
 dogma	dogmata
@@ -301,7 +301,7 @@ efreet	efreeti
 ego	egos
 eland	elands|eland
 electrolysis	electrolyses
-elk	elks|elk
+elk	elk|elks
 Ellie	Ellies
 ellipsis	ellipses
 Elsie	Elsies
@@ -363,7 +363,7 @@ Frankie	Frankies
 Freddie	Freddies
 freebie	freebies
 frizz	frizzes
-fungus	funguses|fungi
+fungus	fungi|funguses
 furioso	furiosos
 fuse	fuses
 ganglion	ganglions|ganglia
@@ -406,7 +406,7 @@ gyro	gyros
 haddock	haddocks|haddock
 hairdo	hairdos
 hake	hakes|hake
-halibut	halibuts|halibut
+halibut	halibut|halibuts
 halitosis	halitoses
 Hallie	Hallies
 hallux	halluces
@@ -414,12 +414,13 @@ ham on rye	ham-on-ryes
 Hanoi	Hanois
 harman	harmans
 Hattie	Hatties
-have	has
-he	they
+he	them
 head of state	heads of states|heads of state
 headache	headaches
 heartache	heartaches
+helium	helium|heliums
 helix	helices
+her	their
 her	them
 hero	heroes
 herring	herrings|herring
@@ -435,6 +436,7 @@ himself	themselves
 hippo	hippos
 hippopotamus	hippopotamuses|hippopotami
 Hiroshiman	Hiroshimans
+his	their
 his	theirs
 hive	hives
 hoe	hoes
@@ -473,6 +475,7 @@ Iquico	Iquicos
 iris	irises|irides
 it	they|them
 iter	itinera
+its	their
 its	theirs
 itself	themselves
 Ivanhoe	Ivanhoes
@@ -527,6 +530,7 @@ Laurie	Lauries
 leman	lemans
 lemma	lemmas|lemmata
 lens	lenses
+leptocephalus	leptocephali
 Leslie	Leslies
 Lesotho	Lesothos
 Lessie	Lessies
@@ -641,14 +645,13 @@ Mollie	Mollies
 momentum	momentums|momenta
 mommie	mommies
 Monaco	Monacos
-money	monies
 mongoose	mongooses
 mono	monos
 mononucleosis	mononucleoses
 Monroe	Monroes
 Montenegro	Montenegros
 Morocco	Moroccos
-mosquito	mosquitoes
+mosquito	mosquitos|mosquitoes
 motto	mottoes
 Mountie	Mounties
 mouse	mice
@@ -657,6 +660,7 @@ movie	movies
 Muqdisho	Muqdishos
 murex	murices
 muse	muses
+my	our
 myo	myos
 myself	ourselves
 mythos	mythoi
@@ -674,6 +678,7 @@ neurosis	neuroses
 neutrino	neutrinos
 never-was	never-weres
 newbie	newbies
+nexus	nexuses
 niche	niches
 Nietzsche	Nietzsches
 nightie	nighties
@@ -689,11 +694,11 @@ nucleus	nuclei
 numen	numina
 oaf	oafs
 oasis	oases
+obesity	obesities
 oboe	oboes
 occiput	occiputs|occipita
 octavo	octavos
-octopus	octopi
-octopus	octopuses|octopodes
+octopus	octopi|octopuses|octopodes
 oedema	oedemata
 Oklahoman	Oklahomans
 oldie	oldies
@@ -751,6 +756,7 @@ pickaxe	pickaxes
 pickerel	pickerels|pickerel
 pie	pies
 pike	pikes|pike
+pilaf	pilafs
 pimento	pimentos
 pinkie	pinkies
 pinto	pintos
@@ -796,7 +802,7 @@ pupa	pupae
 quadrans	quadrantes
 quantum	quantums|quanta
 quarto	quartos
-quartz	quartzes
+quartz	quartz|quartzes
 quiche	quiches
 quickie	quickies
 Quito	Quitos
@@ -809,6 +815,7 @@ recluse	recluses
 referendum	referenda|referendums
 Reggie	Reggies
 repo	repos
+research	research|researches
 resolve	resolves
 reuse	reuses
 reverie	reveries
@@ -862,6 +869,7 @@ sassafras	sassafrases
 schema	schemata
 scherzando	scherzandos
 scherzo	scherzos
+schoolbus	schoolbuses
 sclerosis	scleroses
 scoliosis	scolioses
 Scottie	Scotties
@@ -876,7 +884,7 @@ she	they
 Sherrie	Sherries
 ship of the line	ships of the line
 shoe	shoes
-shrimp	shrimps
+shrimp	shrimp|shrimps
 shtetl	shtetlach
 silex	silices
 silicosis	silicoses
@@ -885,7 +893,7 @@ simplex	simplexes|simplices
 sink	sinks
 sinus	sinuses|sinus
 sirocco	siroccos
-sleep	sleeps
+sleep	sleep|sleeps
 sloe	sloes
 sma	smas
 snipe	snipes|snipe
@@ -901,7 +909,6 @@ soprano	sopranos|soprana
 sortie	sorties
 souse	souses
 spaghetto	spaghettis|spaghetti
-specie	species
 spectrum	spectrums|spectra
 speculum	speculums|specula
 spouse	spouses
@@ -909,7 +916,6 @@ staccato	staccatos
 Stacie	Stacies
 stadium	stadiums|stadia
 stamen	stamens|stamina
-status	statuses
 status	statuses|status
 Stefanie	Stefanies
 Stephanie	Stephanies
@@ -991,6 +997,7 @@ Tracie	Tracies
 tranche	tranches
 transfuse	transfuses
 trapezium	trapeziums|trapezia
+trauma	traumas
 trauma	traumata
 Trekkie	Trekkies
 trellis	trellises
@@ -1028,7 +1035,7 @@ vermicello	vermicellos
 verso	versos
 vertebra	vertebrae
 vertex	vertexes|vertices
-veto	vetoes
+veto	vetos|vetoes
 vibrato	vibratos
 Vickie	Vickies
 vie	vies
@@ -1037,17 +1044,16 @@ violoncello	violoncellos
 Virgie	Virgies
 Virgo	Virgos
 virtuoso	virtuosos|virtuosa
-virus	viri
 vita	vitae
+volcano	volcanoes|volcanos
 vortex	vortexes|vortices
 walrus	walruses
 water fowl	water fowls|water fowl
 water-fowl	water-fowls|water-fowl
 weave	weaves
 weirdo	weirdos
-were	was
 WHO	WHOs
-wildebeest	wildebeests|wildebeest
+wildebeest	wildebeest|wildebeests
 Willie	Willies
 Winnie	Winnies
 woe	woes
@@ -1063,6 +1069,7 @@ yeshiva	yeshivoth
 yo-yo	yo-yos
 Yokohaman	Yokohamans
 Yorkie	Yorkies
+your	your
 yourself	yourselves
 Yuman	Yumans
 yuppie	yuppies

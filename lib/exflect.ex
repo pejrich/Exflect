@@ -1,6 +1,18 @@
 defmodule Exflect do
   alias Exflect.{Singularize, Pluralize, Shared, Word}
 
+  @spec singular?(String.t()) :: boolean()
+  @doc """
+  Returns true is the word is singular, else false.
+  """
+  def singular?(string), do: Exflect.Detect.singular?(string)
+
+  @spec plural?(String.t()) :: boolean()
+  @doc """
+  Returns true is the word is plural, else false.
+  """
+  def plural?(string), do: Exflect.Detect.plural?(string)
+
   @spec singularize(String.t(), keyword()) :: String.t()
   @doc """
   Singlarizes an English word.
@@ -10,27 +22,51 @@ defmodule Exflect do
   "leaf"
   ```
 
-  Takes the option `match_style` if you want it to maintain the current whitespace/case.
+  Takes two options:
+  `check`: `boolean` | default: `false`
+  `match_style`: `boolean` | default: `false`
+
+  Use the option `check`, if you're not sure about the form of the word you're passing in.
+  For performance reasons, to avoid a bunch of expensive regex call, by default the input is not checked to see if it's already singular.
+  This incurs about a 30x performance hit. ~40k ips vs ~1.2m ips unchecked.
+  ```
+  iex> Exflect.singularize("bus")
+  "bu"
+  iex> Exflect.singularize("bus", check: true)
+  "bus"
+  ```
+
+  Use the option `match_style` if you want it to maintain the current whitespace/case.
   ```elixir
   iex> Exflect.singularize("  LEAVES  ", match_style: true)
   "  LEAF  "
   ```
   """
-  def singularize(text, opts \\ [match_style: false])
+  def singularize(text, opts \\ [match_style: false, check: false])
 
-  def singularize("" <> text, match_style: true) do
-    word = Word.new(text)
+  def singularize("" <> text, opts) do
+    check = Keyword.get(opts, :check, false)
+    match_style = Keyword.get(opts, :match_style, false)
 
-    %{word | text: uncountable?(word.text) || do_singularize(word.text)}
-    |> to_string()
-  end
-
-  def singularize("" <> text, _) do
-    text2 = downcase(text)
-    uncountable?({text2, text}) || do_singularize({text2, text})
+    cond do
+      check && Exflect.Detect.singular?(text) -> text
+      true -> unchecked_singularize(text, match_style)
+    end
   end
 
   def singularize(val, opts), do: val |> to_string() |> singularize(opts)
+
+  defp unchecked_singularize("" <> text, true) do
+    word = Word.new(text)
+
+    %{word | text: do_singularize(word.text)}
+    |> to_string()
+  end
+
+  defp unchecked_singularize("" <> text, _) do
+    text2 = downcase(text)
+    do_singularize({text, text2})
+  end
 
   @spec pluralize(String.t(), keyword()) :: String.t()
   @doc """
@@ -41,27 +77,51 @@ defmodule Exflect do
   "leaves"
   ```
 
-  Takes the option `match_style` if you want it to maintain the current whitespace/case.
+  Takes two options:
+  `check`: `boolean` | default: `false`
+  `match_style`: `boolean` | default: `false`
+
+  Use the option `check`, if you're not sure about the form of the word you're passing in.
+  For performance reasons, to avoid a bunch of expensive regex call, by default the input is not checked to see if it's already plural.
+  This incurs about a 30x performance hit. ~40k ips vs ~1.2m ips unchecked.
+  ```
+  iex> Exflect.pluralize("men")
+  "mens"
+  iex> Exflect.pluralize("men", check: true)
+  "men"
+  ```
+
+  Use the option `match_style` if you want it to maintain the current whitespace/case.
   ```elixir
   iex> Exflect.pluralize("  LEAF  ", match_style: true)
   "  LEAVES  "
   ```
   """
-  def pluralize(word, opts \\ [match_style: false])
+  def pluralize(word, opts \\ [match_style: false, check: false])
 
-  def pluralize("" <> text, match_style: true) do
-    word = Word.new(text)
+  def pluralize("" <> text, opts) do
+    check = Keyword.get(opts, :check, false)
+    match_style = Keyword.get(opts, :match_style, false)
 
-    %{word | text: uncountable?(word.text) || do_pluralize(word.text)}
-    |> to_string()
-  end
-
-  def pluralize("" <> text, _) do
-    text2 = downcase(text)
-    uncountable?({text2, text}) || do_pluralize({text2, text})
+    cond do
+      check && Exflect.Detect.plural?(text) -> text
+      true -> unchecked_pluralize(text, match_style)
+    end
   end
 
   def pluralize(word, opts), do: word |> to_string() |> pluralize(opts)
+
+  defp unchecked_pluralize("" <> text, true) do
+    word = Word.new(text)
+
+    %{word | text: do_pluralize(word.text)}
+    |> to_string()
+  end
+
+  defp unchecked_pluralize("" <> text, _) do
+    text2 = downcase(text)
+    do_pluralize({text, text2})
+  end
 
   @spec inflect(String.t(), pos_integer(), keyword()) :: String.t()
   @doc """
@@ -101,6 +161,8 @@ defmodule Exflect do
       {{_, text}, {_, text}} -> text
       {{:exception, text}, _} -> text
       {_, {:exception, text}} -> text
+      {{:uncountable, text}, _} -> text
+      {_, {:uncountable, text}} -> text
       {{:match, text}, _} -> text
       {_, {:match, text}} -> text
       {{:default, text}, _} -> text
@@ -117,6 +179,8 @@ defmodule Exflect do
       {{_, text}, {_, text}} -> text
       {{:exception, text}, _} -> text
       {_, {:exception, text}} -> text
+      {{:uncountable, text}, _} -> text
+      {_, {:uncountable, text}} -> text
       {{:match, text}, _} -> text
       {_, {:match, text}} -> text
       {{:default, text}, _} -> text
@@ -125,9 +189,9 @@ defmodule Exflect do
     end
   end
 
-  defp uncountable?({text, text}), do: Shared.uncountable?(text)
-  defp uncountable?({text, text2}), do: Shared.uncountable?(text) || Shared.uncountable?(text2)
-  defp uncountable?("" <> text), do: Shared.uncountable?(text)
+  # defp uncountable?({text, text}), do: Shared.uncountable?(text)
+  # defp uncountable?({text, text2}), do: Shared.uncountable?(text) || Shared.uncountable?(text2)
+  # defp uncountable?("" <> text), do: Shared.uncountable?(text)
 
   defp downcase(<<a, _::binary>> = string) when a in ?A..?Z,
     do: String.downcase(string)

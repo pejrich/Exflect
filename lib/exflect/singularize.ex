@@ -3,16 +3,7 @@ defmodule Exflect.Singularize do
   @exceptions Exflect.Shared.exceptions(:singularize)
   @shared_endings Exflect.Shared.shared_endings(:singularize)
 
-  @rules (@shared_endings ++
-            [
-              {"women", "woman"},
-              {"seamen", "seaman"},
-              {"ss", ""},
-              {"tives", "tive"},
-              {"erves", "erve"},
-              {"oes", "o"}
-            ])
-         |> Enum.sort_by(fn {k, _} -> -byte_size(k) end)
+  @rules Enum.sort_by(@shared_endings, fn {k, _} -> -byte_size(k) end)
 
   @longest List.first(@rules) |> elem(0) |> byte_size()
 
@@ -24,7 +15,8 @@ defmodule Exflect.Singularize do
   end
 
   def match("" <> text),
-    do: exception?(text) || match(skip_text(text, byte_size(text) - @longest))
+    do:
+      exception?(text) || uncountable?(text) || match(skip_text(text, byte_size(text) - @longest))
 
   def match({"s", text}), do: {:default, text}
   def match({"", text}), do: {:default, text}
@@ -44,6 +36,13 @@ defmodule Exflect.Singularize do
   end
 
   defp skip_text(text, _), do: {text, ""}
+
+  defp uncountable?(text) do
+    case Exflect.Shared.uncountable?(text) do
+      "" <> text -> {:uncountable, text}
+      _ -> nil
+    end
+  end
 
   defp exception?(text) do
     case Map.get(@exceptions, text) do
