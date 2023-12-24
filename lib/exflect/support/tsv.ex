@@ -1,4 +1,5 @@
 defmodule Exflect.Support.TSV do
+  @moduledoc false
   defmacro priv_path(name, path) do
     quote do
       @path_with_priv :code.priv_dir(:exflect) |> Path.join(unquote(path))
