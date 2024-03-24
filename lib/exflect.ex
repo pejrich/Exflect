@@ -1,5 +1,5 @@
 defmodule Exflect do
-  alias Exflect.{Singularize, Pluralize, Shared, Word}
+  alias Exflect.{Singularize, Pluralize, Word}
 
   @spec singular?(String.t()) :: boolean()
   @doc """

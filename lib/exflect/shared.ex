@@ -4,7 +4,7 @@ defmodule Exflect.Shared do
   priv_path(:exception_path, "exceptions.tsv")
   priv_path(:uncountable_path, "uncountable.tsv")
   priv_path(:endings_path, "endings.tsv")
-  @const ~w(b c d f g h j k l m n p q r s t v w x z)
+  @cons ~w(b c d f g h j k l m n p q r s t v w x z)
   @exceptions parse_file(@exception_path)
   @sg_pl_exceptions Enum.map(@exceptions, fn [a, b] ->
                       {a, String.split(b, "|") |> List.first()}
@@ -26,7 +26,7 @@ defmodule Exflect.Shared do
   @endings parse_file(@endings_path)
            |> Enum.map(&List.to_tuple/1)
 
-  @uncountable_ends Enum.map(["y" | @const], &{"#{&1}ese", "#{&1}ese"})
+  @uncountable_ends Enum.map(["y" | @cons], &{"#{&1}ese", "#{&1}ese"})
 
   @shared_endings @uncountable_ends ++ @endings
 

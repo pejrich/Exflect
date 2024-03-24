@@ -28,3 +28,11 @@ Features:
   - Added `check` option to singularize/pluralize
   - Added singular?/1 and plural?/1 functions
   - Cleaned up test data
+
+## 1.0.0 (2024-03-24)
+
+Improvements:
+
+  - Handful of small fixes
+    - compound '-house'/'-pause' now fixed. Prevously `poolhouses` and `menopauses` would singularize to `poolhous` and `menopaus`, but they are now fixed.
+  - Fixed unused alias warning
